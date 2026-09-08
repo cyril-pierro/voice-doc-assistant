@@ -1370,6 +1370,31 @@ btnNewSession?.addEventListener("click", () => {
   logMessage("system", "Session ended — token cleared from sessionStorage. Please sign in again.");
 });
 
+// Sign Out (config screen) — hard logout: clear local auth + backend cookie,
+// then return to the Sign In / Sign Up landing page.
+const btnSignOutConfig = document.getElementById("btnSignOutConfig");
+btnSignOutConfig?.addEventListener("click", () => {
+  try { btnSignOutConfig.disabled = true; btnSignOutConfig.textContent = "Signing out…"; } catch {}
+  // End any active voice session first (mic + WebSocket).
+  try { if (typeof endSession === "function" && (isConnected || isMicActive)) endSession("sign-out"); } catch {}
+  try { disconnect(); } catch {}
+  // Clear local tokens/user state.
+  try { clearSessionAuth(); } catch {}
+  try {
+    sessionStorage.removeItem("custom_ai_name");
+    sessionStorage.removeItem("voiceGender");
+    sessionStorage.removeItem("preferred_ai_gender");
+  } catch {}
+  // Clear the backend httponly session cookie (fire-and-forget).
+  try { fetch(`${getBackendBase()}/api/auth/signout`, { method: "POST", credentials: "include" }); } catch {}
+  // Land on the Sign In / Sign Up page.
+  showScreen("landing");
+  turnCount = 0; toolCount = 0;
+  if (statTurns) statTurns.textContent = "0";
+  if (statTools) statTools.textContent = "0";
+  logMessage("system", "Signed out — please sign in or create an account.");
+});
+
 // ---------------------------------------------------------------------------
 // Helpers — connection, logging, backend base
 // ---------------------------------------------------------------------------
