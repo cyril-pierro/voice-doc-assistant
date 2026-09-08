@@ -76,16 +76,6 @@ Most "Chat with PDF" demos are **text-in, text-out** wrappers around an LLM. Thi
 4. **Launch** → 3s cinematic (orbs + `pgvector` progress) → **Main Dashboard** as your AI `Aria`/`Milo` greets you: *“Hi Alice! I'm Aria (Aoede) — ...”* (system instruction injected via `client.aio.live.connect(speech_config=Aoede/Charon)`)
 5. **Tap 🎙️** and say *"What does my document say about refunds?"* → Watch **`query_document` fire** with `similarity=0.87` → hear grounded answer (tool logs never spoken) → on disconnect, **BackgroundTasks** emails a mock SMTP summary to your validated `email`
 
-### Screenshots
-
-> Add your own — placeholders below render nicely on GitHub.
-
-| Session & Upload | Voice Stream & Visualizer | Tool Log |
-|---|---|---|
-| ![session](docs/screenshots/session.png) | ![visualizer](docs/screenshots/visualizer.png) | ![tools](docs/screenshots/tools.png) |
-
-**Tip for your portfolio:** Record a 45-second Loom showing upload → voice question → tool call → spoken answer. Hiring managers *watch* that.
-
 ---
 
 ## Architecture
