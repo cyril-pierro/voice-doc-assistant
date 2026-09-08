@@ -1,0 +1,233 @@
+{
+  "meta": {
+    "generated_at": "2026-09-08T11:32:01Z",
+    "dataset_size": 10,
+    "method": "heuristic_tfidf",
+    "total_time_s": 0.013,
+    "model": "mock",
+    "ragas_used": false,
+    "dataset_columns": [
+      "question",
+      "contexts",
+      "ground_truth",
+      "answer"
+    ]
+  },
+  "aggregate": {
+    "overall": {
+      "count": 10,
+      "avg_faithfulness": 0.682,
+      "avg_answer_relevance": 0.1837,
+      "avg_context_recall": 0.7288,
+      "avg_latency_ms": 0.261,
+      "pass_rate_faithfulness_ge_0_7": 0.3,
+      "pass_rate_relevance_ge_0_5": 0.0
+    },
+    "by_language": {
+      "ar": {
+        "count": 1,
+        "avg_faithfulness": 0.6671,
+        "avg_answer_relevance": 0.1741,
+        "avg_context_recall": 0.5539
+      },
+      "de": {
+        "count": 1,
+        "avg_faithfulness": 0.7452,
+        "avg_answer_relevance": 0.0,
+        "avg_context_recall": 0.8402
+      },
+      "en": {
+        "count": 2,
+        "avg_faithfulness": 0.6432,
+        "avg_answer_relevance": 0.1356,
+        "avg_context_recall": 0.7231
+      },
+      "en+fr": {
+        "count": 1,
+        "avg_faithfulness": 0.596,
+        "avg_answer_relevance": 0.0642,
+        "avg_context_recall": 0.6957
+      },
+      "es": {
+        "count": 2,
+        "avg_faithfulness": 0.6906,
+        "avg_answer_relevance": 0.3269,
+        "avg_context_recall": 0.7835
+      },
+      "fr": {
+        "count": 2,
+        "avg_faithfulness": 0.7393,
+        "avg_answer_relevance": 0.3256,
+        "avg_context_recall": 0.8406
+      },
+      "ja": {
+        "count": 1,
+        "avg_faithfulness": 0.6653,
+        "avg_answer_relevance": 0.0224,
+        "avg_context_recall": 0.5038
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "en_01",
+      "language": "en",
+      "language_name": "English",
+      "question": "What is the refund policy according to the document?",
+      "contexts": [
+        "Our refund policy allows returns within 30 days of purchase. Items must be unused and in original packaging. Refunds are processed within 5-7 business days to the original payment method."
+      ],
+      "ground_truth": "Returns are allowed within 30 days if items are unused and in original packaging, with refunds processed in 5-7 business days.",
+      "answer": "You can return items within 30 days if they are unused and in original packaging. Refunds take 5-7 business days.",
+      "faithfulness": 0.65,
+      "answer_relevance": 0.0,
+      "context_recall": 0.7881,
+      "latency_ms": 1.69,
+      "method": "heuristic"
+    },
+    {
+      "id": "en_02",
+      "language": "en",
+      "language_name": "English",
+      "question": "Summarize the key safety instructions for the device.",
+      "contexts": [
+        "Safety instructions: Do not expose the device to water. Charge only with the included cable. Keep away from children under 3 years. Operating temperature: 0-40°C. Do not disassemble."
+      ],
+      "ground_truth": "Keep device dry, use only included cable, keep away from small children, operate at 0-40°C, do not disassemble.",
+      "answer": "Keep the device away from water, use the included charging cable, keep away from children under 3, operate between 0-40°C and never disassemble it.",
+      "faithfulness": 0.6365,
+      "answer_relevance": 0.2712,
+      "context_recall": 0.6581,
+      "latency_ms": 0.06,
+      "method": "heuristic"
+    },
+    {
+      "id": "fr_01",
+      "language": "fr",
+      "language_name": "French",
+      "question": "Quelle est la durée de la garantie mentionnée dans le document ?",
+      "contexts": [
+        "Garantie : Ce produit est garanti 2 ans à compter de la date d'achat. La garantie couvre les défauts de fabrication mais exclut les dommages causés par une mauvaise utilisation."
+      ],
+      "ground_truth": "La garantie est de 2 ans à partir de la date d'achat et couvre les défauts de fabrication.",
+      "answer": "Le produit est garanti 2 ans à partir de la date d'achat et couvre les défauts de fabrication, hors mauvaise utilisation.",
+      "faithfulness": 0.7727,
+      "answer_relevance": 0.3397,
+      "context_recall": 0.825,
+      "latency_ms": 0.05,
+      "method": "heuristic"
+    },
+    {
+      "id": "fr_02",
+      "language": "fr",
+      "language_name": "French",
+      "question": "Comment contacter le support client ?",
+      "contexts": [
+        "Support client : Email support@exemple.fr, téléphone +33 1 23 45 67 89, disponible du lundi au vendredi de 9h à 18h."
+      ],
+      "ground_truth": "Par email à support@exemple.fr ou téléphone +33 1 23 45 67 89, du lundi au vendredi 9h-18h.",
+      "answer": "Vous pouvez contacter le support par email à support@exemple.fr ou au +33 1 23 45 67 89, du lundi au vendredi de 9h à 18h.",
+      "faithfulness": 0.706,
+      "answer_relevance": 0.3114,
+      "context_recall": 0.8563,
+      "latency_ms": 0.05,
+      "method": "heuristic"
+    },
+    {
+      "id": "es_01",
+      "language": "es",
+      "language_name": "Spanish",
+      "question": "¿Cuál es el horario de atención del documento?",
+      "contexts": [
+        "Horario de atención: Lunes a viernes de 9:00 a 18:00, sábados de 10:00 a 14:00. Cerrado domingos y festivos. Citas disponibles con 24h de antelación."
+      ],
+      "ground_truth": "Lunes a viernes 9-18h, sábados 10-14h, cerrado domingos y festivos, citas con 24h de antelación.",
+      "answer": "El horario es de lunes a viernes de 9 a 18h y sábados de 10 a 14h. Cerrado domingos y festivos; pida cita con 24h de antelación.",
+      "faithfulness": 0.6829,
+      "answer_relevance": 0.361,
+      "context_recall": 0.7783,
+      "latency_ms": 0.05,
+      "method": "heuristic"
+    },
+    {
+      "id": "es_02",
+      "language": "es",
+      "language_name": "Spanish",
+      "question": "¿Qué incluye el plan premium?",
+      "contexts": [
+        "Plan premium incluye: almacenamiento ilimitado, soporte prioritario 24/7, acceso a funciones beta, y 5 licencias de usuario. Precio: 29,99€/mes."
+      ],
+      "ground_truth": "Almacenamiento ilimitado, soporte 24/7 prioritario, funciones beta y 5 licencias por 29,99€/mes.",
+      "answer": "El plan premium ofrece almacenamiento ilimitado, soporte prioritario 24/7, acceso beta y 5 licencias por 29,99 euros al mes.",
+      "faithfulness": 0.6983,
+      "answer_relevance": 0.2928,
+      "context_recall": 0.7888,
+      "latency_ms": 0.05,
+      "method": "heuristic"
+    },
+    {
+      "id": "de_01",
+      "language": "de",
+      "language_name": "German",
+      "question": "Wie lautet die Kündigungsfrist laut Dokument?",
+      "contexts": [
+        "Kündigungsfrist: Der Vertrag kann mit einer Frist von 4 Wochen zum Monatsende gekündigt werden. Die Kündigung muss schriftlich per E-Mail an kuendigung@beispiel.de erfolgen."
+      ],
+      "ground_truth": "4 Wochen zum Monatsende, schriftlich per E-Mail an kuendigung@beispiel.de.",
+      "answer": "Sie können mit 4 Wochen Frist zum Monatsende kündigen, schriftlich per E-Mail an kuendigung@beispiel.de.",
+      "faithfulness": 0.7452,
+      "answer_relevance": 0.0,
+      "context_recall": 0.8402,
+      "latency_ms": 0.04,
+      "method": "heuristic"
+    },
+    {
+      "id": "ja_01",
+      "language": "ja",
+      "language_name": "Japanese",
+      "question": "資料によると、配送には何日かかりますか？",
+      "contexts": [
+        "配送について：通常、注文から3〜5営業日以内に発送されます。お急ぎ便は翌日配送が可能です。送料は全国一律500円、5000円以上で無料。"
+      ],
+      "ground_truth": "通常3〜5営業日、翌日配送も可能。送料500円、5000円以上無料。",
+      "answer": "通常は注文から3〜5営業日以内に発送され、お急ぎ便なら翌日配送可能です。送料は500円ですが5000円以上で無料です。",
+      "faithfulness": 0.6653,
+      "answer_relevance": 0.0224,
+      "context_recall": 0.5038,
+      "latency_ms": 0.52,
+      "method": "heuristic"
+    },
+    {
+      "id": "ar_01",
+      "language": "ar",
+      "language_name": "Arabic",
+      "question": "ما هي ساعات العمل حسب الوثيقة؟",
+      "contexts": [
+        "ساعات العمل: من الإثنين إلى الجمعة من 8 صباحاً حتى 5 مساءً. مغلق يومي السبت والأحد. الدعم عبر البريد الإلكتروني support@example.com."
+      ],
+      "ground_truth": "الإثنين–الجمعة 8ص–5م، مغلق السبت والأحد، الدعم عبر support@example.com.",
+      "answer": "ساعات العمل من الإثنين إلى الجمعة من الثامنة صباحاً حتى الخامسة مساءً، مغلق السبت والأحد، والتواصل عبر support@example.com.",
+      "faithfulness": 0.6671,
+      "answer_relevance": 0.1741,
+      "context_recall": 0.5539,
+      "latency_ms": 0.05,
+      "method": "heuristic"
+    },
+    {
+      "id": "mix_01",
+      "language": "en+fr",
+      "language_name": "Code-switching (EN/FR)",
+      "question": "What is la politique de retour? (mixed English/French)",
+      "contexts": [
+        "Politique de retour / Return policy: 30-day returns, items must be unused. Retours sous 30 jours, articles non utilisés. Refunds 5-7 business days."
+      ],
+      "ground_truth": "30-day / 30 jours return window, unused items, refund in 5-7 days.",
+      "answer": "The return window is 30 days (30 jours), items must be unused/non utilisés, and refunds are processed in 5-7 business days.",
+      "faithfulness": 0.596,
+      "answer_relevance": 0.0642,
+      "context_recall": 0.6957,
+      "latency_ms": 0.05,
+      "method": "heuristic"
+    }
+  ]
+}
