@@ -107,7 +107,7 @@ flowchart LR
         direction TB
         COMP[app/main.py\nComposition Root + Lifespan]
         CORE[app/core/database.py\nDynamic SQLite/Postgres\nasyncpg vs aiosqlite]
-        AUTH_BE[app/auth/routes.py\nPOST /api/auth/signup|signin → JWT access_token\npasslib bcrypt + PyJWT HS256 + session cookie]
+        AUTH_BE[app/auth/routes.py\nPOST /api/auth/signup · signin → JWT access_token\npasslib bcrypt + PyJWT HS256 + session cookie]
         AUTH_JWT[app/auth/jwt.py\ncreate_access_token/decode/verify\nJWT_SECRET_KEY, exp=7d, issuer=voice-doc-assistant]
         PRES[Presentation\nroutes/health, routes/documents (Bearer JWT)\nwebsockets/stream?token=<jwt> (hydrates DB)\ndependencies/auth (Bearer/Cookie/Query)]
         APPL[Application\nservices/document_service (LangChain)\nservices/retrieval_service (Vector+Hybrid)\nservices/summary_service]
