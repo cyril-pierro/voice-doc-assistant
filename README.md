@@ -109,13 +109,13 @@ flowchart LR
         CORE[app/core/database.py\nDynamic SQLite/Postgres\nasyncpg vs aiosqlite]
         AUTH_BE[app/auth/routes.py\nPOST /api/auth/signup · signin → JWT access_token\npasslib bcrypt + PyJWT HS256 + session cookie]
         AUTH_JWT[app/auth/jwt.py\ncreate_access_token/decode/verify\nJWT_SECRET_KEY, exp=7d, issuer=voice-doc-assistant]
-        PRES[Presentation\nroutes/health, routes/documents (Bearer JWT)\nwebsockets/stream?token=<jwt> (hydrates DB)\ndependencies/auth (Bearer/Cookie/Query)]
-        APPL[Application\nservices/document_service (LangChain)\nservices/retrieval_service (Vector+Hybrid)\nservices/summary_service]
-        INFRA[Infrastructure\nrepositories/pgvector (+memory fallback)\ndocument/langchain_extractor + splitter\nembeddings/openai + local hashing\nrealtime/factory + providers]
+        PRES["Presentation<br/>routes/health · routes/documents (Bearer JWT)<br/>websockets/stream?token=«jwt» (hydrates DB)<br/>dependencies/auth (Bearer/Cookie/Query)"]
+        APPL["Application<br/>services/document_service (LangChain)<br/>services/retrieval_service (Vector+Hybrid)<br/>services/summary_service"]
+        INFRA["Infrastructure<br/>repositories/pgvector (+memory fallback)<br/>document/langchain_extractor + splitter<br/>embeddings/openai + local hashing<br/>realtime/factory + providers"]
         DOM[Domain\nentities.Document + Chunk + User\ninterfaces.DocumentRepository + TextExtractor]
-        DB[(SQLite dev_voice_assistant.db\nor Postgres pgvector)]
-        WS1 -- "WS /ws/stream?token=<jwt> or\n?username&voice_gender + Bearer cookie" --> PRES --> APPL --> DOM
-        PRES -- "upload/list/delete (Authorization: Bearer <jwt>)" --> APPL --> INFRA
+        DB[("SQLite dev_voice_assistant.db<br/>or Postgres pgvector")]
+        WS1 -- "WS /ws/stream?token=«jwt» or<br/>?username + voice_gender + Bearer cookie" --> PRES --> APPL --> DOM
+        PRES -- "upload/list/delete (Authorization: Bearer «jwt»)" --> APPL --> INFRA
         AUTH_BE --> AUTH_JWT --> CORE --> DB
         APPL -- "provider == mock?" --> MOCK[Mock Loop\nheuristic + personalized greeting]
         APPL -- "provider == openai" --> OAI[OpenAI Realtime\nwss://api.openai.com/v1/realtime]
@@ -138,7 +138,7 @@ flowchart LR
     end
 
     subgraph Vector["Vector Store"]
-        PG[(pgvector Postgres\nvector(1536) HNSW\nor in-memory cosine)]
+        PG[("pgvector Postgres<br/>vector(1536) HNSW<br/>or in-memory cosine")]
         PG -.-> INFRA
     end
 ```
